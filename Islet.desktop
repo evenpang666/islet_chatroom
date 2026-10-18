@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=浮岛 Islet
+Comment=让有趣的灵魂相遇
+Exec=sh -c "cd \"$(dirname \"$1\")\" && exec sh ./start.sh" sh %k
+Terminal=true
+Categories=Network;Chat;
+StartupNotify=true

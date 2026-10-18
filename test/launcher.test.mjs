@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { supportedNode,dependenciesReady,sessionEnvironment } from '../scripts/environment.mjs';
+import { supportsDsh,compareVersions } from '../scripts/dsh-version.mjs';
+import { isDshWebCommand,profilePatch } from '../scripts/dsh-host.mjs';
+import { launchPatch } from '../scripts/launch.mjs';
+test('newer Node and DSH are reused while old versions fail minimum check',()=>{assert.equal(supportedNode('24.4.0'),false);assert.ok(supportedNode('24.5.0'));assert.ok(supportedNode('26.0.0'));assert.equal(supportsDsh('0.1.9'),false);assert.ok(supportsDsh('0.2.0-rc.2'));assert.ok(supportsDsh('1.0.0'));assert.equal(compareVersions('0.2.0-rc.10','0.2.0-rc.2'),1);});
+test('plugin has no npm runtime dependencies and localhost bypasses proxy',async()=>{assert.ok(await dependenciesReady());const env=sessionEnvironment({PATH:'x',NO_PROXY:'example.com'});assert.match(env.NO_PROXY,/localhost/);assert.match(env.NO_PROXY,/example.com/);});
+test('launcher patch is idempotent and retains unrelated plugin configuration',()=>{const original='- id: whereto\n  config:\n    port: 3101\n',patch=launchPatch({dataRoot:'C:\\Local Room'});const next=profilePatch(original,patch);assert.match(next,/whereto/);assert.match(next,/chatroom/);assert.equal(profilePatch(next,patch),next);});
+test('runtime process detection distinguishes Web services from CLI tasks',()=>{const bin='C:/npm/node_modules/@deepseek-ai/dsh/lib/bin.js';assert.ok(isDshWebCommand(['node',bin,'--profile','web']));assert.equal(isDshWebCommand(['node',bin,'--version']),false);assert.equal(isDshWebCommand(['node',bin,'plugin','add']),false);assert.equal(isDshWebCommand(['node',bin,'--profile','other']),false);});

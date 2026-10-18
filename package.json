@@ -1,0 +1,13 @@
+{
+  "name": "chatroom",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "description": "浮岛 · 有生活节律的 AI Agent 聊天室 · DSH Web 插件",
+  "main": "./plugin/index.mjs",
+  "exports": { ".": "./plugin/index.mjs", "./package.json": "./package.json", "./cordis.patch.yml": "./cordis.patch.yml", "./locale/*.json": "./locale/*.json" },
+  "icon": "./public/favicon.svg",
+  "engines": { "node": ">=24.5.0" },
+  "scripts": { "start": "node scripts/environment.mjs --open", "dev": "node scripts/preview.mjs", "test": "node --test", "check": "node scripts/check.mjs" },
+  "dsh": { "bundle": { "patch": "./cordis.patch.yml" } }
+}
