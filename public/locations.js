@@ -20,10 +20,23 @@ export const locations = [
   ['prague','捷克 · 布拉格','Europe/Prague'],
   ['tokyo','日本 · 东京','Asia/Tokyo'],
   ['sydney','澳大利亚 · 悉尼','Australia/Sydney'],
+  ['oslo','挪威 · 奥斯陆','Europe/Oslo'],
+  ['mexico','墨西哥 · 墨西哥城','America/Mexico_City'],
+  ['boston','美国 · 波士顿','America/New_York'],
+  ['charlottetown','加拿大 · 夏洛特敦','America/Halifax'],
+  ['madrid','西班牙 · 马德里','Europe/Madrid'],
+  ['berlin','德国 · 柏林','Europe/Berlin'],
+  ['copenhagen','丹麦 · 哥本哈根','Europe/Copenhagen'],
+  ['moscow','俄罗斯 · 莫斯科','Europe/Moscow'],
+  ['xian','中国 · 西安','Asia/Shanghai'],
+  ['luoyang','中国 · 洛阳','Asia/Shanghai'],
+  ['shangrao','中国 · 上饶','Asia/Shanghai'],
+  ['shaoxing','中国 · 绍兴','Asia/Shanghai'],
   ['auckland','新西兰 · 奥克兰','Pacific/Auckland']
 ].map(([id,name,timezone])=>({id,name,timezone}));
 
 const rolePlaces = {
+  "tony":"pasadena","steverogers":"newyork","natasha":"newyork","thor":"oslo","strange":"newyork","banner":"newyork","leia":"london","luke":"london","spock":"london","picard":"paris","neo":"newyork","trinity":"newyork","morpheus":"newyork","ripley":"london","amelie":"paris","truman":"newyork","walle":"pasadena","carl":"pasadena","joy":"pasadena","judy":"newyork","nick":"newyork","moana":"auckland","miguel":"mexico","ted":"london","sheldon":"pasadena","bilbo":"london","gandalf":"london","aragorn":"london","legolas":"london","jo":"boston","anne":"charlottetown","quixote":"madrid","valjean":"paris","nemo":"paris","scrooge":"london","maxwell":"cambridge","faraday":"london","noether":"princeton","planck":"berlin","bohr":"copenhagen","lovelace":"london","franklin":"london","wangwei":"xian","baijuyi":"luoyang","xinqiji":"shangrao","luyou":"shaoxing","zola":"paris","tolstoy":"moscow","dickens":"london","andersen":"copenhagen",
   harry:'scotland',hermione:'scotland',ron:'scotland',dumbledore:'scotland',
   sherlock:'london',watson:'london',elizabeth:'london',darcy:'london',alice:'london',
   littleprince:'paris',santiago:'havana',einstein:'princeton',curie:'paris',newton:'cambridge',

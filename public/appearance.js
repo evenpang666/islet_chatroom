@@ -60,6 +60,22 @@ export function randomAppearance(random=Math.random) {
 export function presetAppearance(id,input) {
   const clothes={harry:['robe','scarf'],hermione:['robe','none'],ron:['sweater','none'],dumbledore:['robe','none'],wangmiao:['shirt','none'],shi:['jacket','none'],luoji:['shirt','none'],ye:['coat','none'],sherlock:['coat','scarf'],watson:['suit','tie'],elizabeth:['dress','necklace'],darcy:['suit','tie'],littleprince:['coat','scarf'],alice:['dress','none'],santiago:['shirt','none'],sun:['armor','scarf'],zhu:['robe','none'],lin:['robe','necklace'],jia:['robe','none'],zhuge:['robe','none'],guo:['robe','none'],huang:['robe','none'],linghu:['robe','none'],zhang:['robe','none'],nezha:['armor','none'],einstein:['sweater','none'],curie:['coat','none'],newton:['coat','none'],feynman:['shirt','none'],darwin:['coat','none'],tesla:['suit','tie'],turing:['sweater','none'],hawking:['suit','none'],galileo:['robe','none'],sagan:['jacket','none'],luxun:['robe','none'],sushi:['robe','none'],libai:['robe','none'],dufu:['robe','none'],liqingzhao:['robe','none'],tao:['robe','none'],shakespeare:['coat','none'],austen:['dress','none'],woolf:['dress','necklace'],kafka:['suit','tie'],hemingway:['shirt','none'],tagore:['robe','none'],laoshe:['shirt','none'],qiang:['suit','tie'],bingxin:['coat','none']};
   const details={
+    tony:{outfit:'armor',shirt:'#a34c48',accent:'#d4b16a',facialHair:'goatee',eyebrows:'arched'},
+    steverogers:{outfit:'jacket',shirt:'#73899f',faceShape:'square'},natasha:{outfit:'jacket',shirt:'#454754'},
+    thor:{outfit:'armor',facialHair:'beard',accent:'#ac625c'},strange:{outfit:'coat',shirt:'#526c91',neckwear:'scarf',accent:'#af6062',facialHair:'goatee'},
+    banner:{outfit:'shirt',mouth:'small'},leia:{outfit:'robe',shirt:'#dedbd4',hairStyle:11},luke:{outfit:'robe',shirt:'#c9bda3'},
+    spock:{outfit:'shirt',shirt:'#7296b1',eyebrows:'arched',eyes:'almond'},picard:{outfit:'shirt',shirt:'#9c535b',faceShape:'oval'},
+    neo:{outfit:'coat',shirt:'#444650',accessory:'sunglasses'},trinity:{outfit:'jacket',shirt:'#41434b',accessory:'sunglasses'},morpheus:{outfit:'coat',accessory:'sunglasses'},
+    ripley:{outfit:'overalls',shirt:'#7d8e7e'},amelie:{outfit:'dress',shirt:'#a35c61',eyes:'bright'},truman:{outfit:'shirt',neckwear:'tie'},
+    walle:{outfit:'armor',shirt:'#c1a269',accent:'#727d7e',eyes:'round',hat:'none'},carl:{outfit:'suit',neckwear:'bowtie',accessory:'glasses',faceShape:'square'},
+    joy:{outfit:'dress',shirt:'#d7cd77',hair:'#668baf',eyes:'bright'},judy:{outfit:'shirt',shirt:'#758eaa',eyes:'bright'},nick:{outfit:'shirt',shirt:'#9ba977',neckwear:'tie',eyes:'sleepy'},
+    moana:{outfit:'dress',shirt:'#c58a71',neckwear:'necklace'},miguel:{outfit:'hoodie',shirt:'#ac5e59'},ted:{outfit:'sweater',facialHair:'mustache'},sheldon:{outfit:'tshirt',pattern:'stripes'},
+    bilbo:{outfit:'coat',shirt:'#897953'},gandalf:{outfit:'robe',hat:'wizard',facialHair:'beard',hatColor:'#9997a0'},aragorn:{outfit:'coat',facialHair:'stubble'},
+    legolas:{outfit:'coat',shirt:'#81977e',hairStyle:3},jo:{outfit:'dress'},anne:{outfit:'dress',cheeks:'freckles'},quixote:{outfit:'armor',facialHair:'goatee'},
+    valjean:{outfit:'coat',facialHair:'beard'},nemo:{outfit:'coat',facialHair:'beard'},scrooge:{outfit:'suit',hat:'beanie'},
+    maxwell:{outfit:'suit',facialHair:'beard'},faraday:{outfit:'coat'},noether:{outfit:'dress'},planck:{outfit:'suit',facialHair:'mustache'},bohr:{outfit:'suit'},lovelace:{outfit:'dress'},franklin:{outfit:'coat'},
+    wangwei:{outfit:'robe',facialHair:'goatee'},baijuyi:{outfit:'robe',facialHair:'goatee'},xinqiji:{outfit:'robe',facialHair:'goatee'},luyou:{outfit:'robe',facialHair:'beard'},
+    zola:{outfit:'suit',accessory:'roundGlasses',facialHair:'beard'},tolstoy:{outfit:'robe',facialHair:'beard'},dickens:{outfit:'suit',facialHair:'beard'},andersen:{outfit:'suit',neckwear:'tie'},
     harry:{accessory:'roundGlasses',accent:'#aa675f'},hermione:{eyebrows:'arched'},ron:{cheeks:'freckles'},
     dumbledore:{facialHair:'beard',hat:'wizard',hatColor:'#8d82b3',accessory:'roundGlasses'},
     shi:{faceShape:'square',eyebrows:'thick',facialHair:'stubble'},sherlock:{hat:'beret',hatColor:'#6e6555',faceShape:'oval'},

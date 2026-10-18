@@ -17,8 +17,8 @@ async function fixture(options={}) {
   await room.configure({agents:[{...presets[25],presetId:'einstein',sleepStart:23,sleepEnd:7,timezone:'Asia/Shanghai'}],timezone:'Asia/Shanghai'});
   return {dir,store,room,calls,backend,time:v=>clock=v};
 }
-test('50 unique preset characters have complete individual contracts',()=>{
-  assert.equal(presets.length,50);assert.equal(new Set(presets.map(a=>a.id)).size,50);
+test('100 unique preset characters have complete individual contracts',()=>{
+  assert.equal(presets.length,100);assert.equal(new Set(presets.map(a=>a.id)).size,100);
   for(const a of presets)for(const key of ['background','style','personality','habits','source'])assert.ok(a[key]);
 });
 test('sleep crosses midnight, honors room timezone and can be disabled',()=>{
