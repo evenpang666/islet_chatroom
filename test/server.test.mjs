@@ -11,7 +11,17 @@ async function fixture(t){const app=await createApp({dataDir:await mkdtemp(join(
 test('independent HTTP and DSH prefix expose same app, with 50 presets',async t=>{
   const {url}=await fixture(t);assert.equal((await fetch(url+'/')).status,200);assert.equal((await fetch(url+'/chatroom/')).status,200);
   assert.equal((await(await fetch(url+'/api/presets')).json()).length,50);const health=await(await fetch(url+'/chatroom/api/health')).json();assert.equal(health.app,'chatroom');
-  const script=await fetch(url+'/avatar.js');assert.match(script.headers.get('Content-Type'),/javascript/);
+  const script=await fetch(url+'/avatar.js');assert.match(script.headers.get('Content-Type'),/javascript/);assert.equal(health.version,'1.2.1');
+  for(const file of ['appearance.js','appearance-editor.js','text.js']){const module=await fetch(url+'/chatroom/'+file);assert.equal(module.status,200);assert.match(module.headers.get('Content-Type'),/javascript/);}
+});
+
+test('HTTP room creation and export preserve every appearance channel and selected preset',async t=>{
+  const {url}=await fixture(t);const seeds=await(await fetch(url+'/api/presets')).json();
+  const {randomAppearance}=await import('../public/appearance.js');const look=randomAppearance(()=>.82);
+  const request={name:'外观验证',agents:[{...seeds[0],presetId:'harry',avatar:look}]};
+  const response=await fetch(url+'/api/rooms',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(request)});assert.equal(response.status,200);
+  const room=await response.json();assert.deepEqual(room.agents[0].avatar,look);assert.equal(room.agents[0].presetId,'harry');
+  const exported=await(await fetch(url+`/api/rooms/${room.id}/export`)).json();assert.deepEqual(exported.agents[0].avatar,look);assert.equal(exported.agents[0].background,seeds[0].background);
 });
 test('cross-origin changes, host spoofing and malformed bodies are rejected',async t=>{
   const {url,port}=await fixture(t);assert.equal((await fetch(url+'/api/rooms',{method:'POST',headers:{Origin:'https://evil.example'},body:'{}'})).status,403);

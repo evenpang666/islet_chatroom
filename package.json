@@ -1,6 +1,6 @@
 {
   "name": "chatroom",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "private": true,
   "type": "module",
   "description": "浮岛 · 有生活节律的 AI Agent 聊天室 · DSH Web 插件",

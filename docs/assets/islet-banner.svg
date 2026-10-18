@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="400" viewBox="0 0 1440 400" role="img" aria-labelledby="title description">
+  <title id="title">浮岛 Islet</title>
+  <desc id="description">浅灰色新拟态背景，居中展示浮岛 Logo 与项目名。</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e9edf3"/><stop offset="1" stop-color="#e1e6ee"/></linearGradient>
+    <linearGradient id="violet" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9688e7"/><stop offset="1" stop-color="#7869d9"/></linearGradient>
+    <filter id="raised" x="-35%" y="-65%" width="180%" height="240%"><feDropShadow dx="-7" dy="-7" stdDeviation="8" flood-color="#fbfdff" flood-opacity=".95"/><feDropShadow dx="8" dy="9" stdDeviation="10" flood-color="#b8c2d1" flood-opacity=".64"/></filter>
+  </defs>
+  <rect width="1440" height="400" rx="30" fill="url(#paper)"/>
+  <g transform="translate(430 25)">
+    <g aria-label="Logo">
+      <g filter="url(#raised)"><rect x="104" y="102" width="146" height="146" rx="44" fill="#e6ebf2"/></g>
+      <path d="m135 170 42-29 42 29-42 29z" fill="url(#violet)"/>
+      <path d="m135 188 42 29 42-29" fill="none" stroke="#8172d7" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g aria-label="浮岛 Islet" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC',sans-serif">
+      <text x="300" y="172" fill="#4e596e" font-size="72" font-weight="700" letter-spacing="12">浮岛</text>
+      <text x="304" y="214" fill="#8477cb" font-family="'Segoe UI',Arial,sans-serif" font-size="22" letter-spacing="10">ISLET</text>
+    </g>
+  </g>
+</svg>

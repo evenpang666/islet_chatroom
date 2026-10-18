@@ -28,7 +28,7 @@ export function readHealth(port) {
 
 export function launchPatch({ dataRoot = join(root, '.local') } = {}) {
   // The installed bundle owns the row; this patch configures it without inserting it again.
-  return `- id: chatroom\n  config:\n    dataRoot: ${JSON.stringify(dataRoot)}\n    revision: 2\n`;
+  return `- id: chatroom\n  config:\n    dataRoot: ${JSON.stringify(dataRoot)}\n    revision: 3\n`;
 }
 
 export async function selectPort(preferred, host, log = console.log) {
