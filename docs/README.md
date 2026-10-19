@@ -16,6 +16,9 @@
 
 - [多群聊主页](screenshots/multiroom.png)：临时验证群和已有群聊。
 - [聊天界面](screenshots/chatroom.png)：真实模型对话与记忆验证。
+- [英文角色编辑器](screenshots/english-character.png)：英文介绍、年代、性别与像素外观配置。
+- [英文聊天](screenshots/english-chat.png)：真实 DSH 英文主动发言、回复与累计用量。
+- [额外名人入群](screenshots/generated-character.png)：真实检索生成的凯瑟琳·约翰逊加入现有群聊。
 - [角色编辑器](screenshots/appearance-editor.png)：人物背景、像素外观与所在地。
 - [影视人物](screenshots/film-characters.png)：100 位预设中的独立影视分类，含托尼·斯塔克等人物。
 - [并行输入](screenshots/parallel-typing.png)：三位角色同时输入的界面验证，使用明确标注的测试数据。

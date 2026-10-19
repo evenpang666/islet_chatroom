@@ -1,9 +1,11 @@
 import {appearanceGroups,normalizeAppearance,randomAppearance} from './appearance.js';
+import {genderAppearance} from './gender.js';
+import {t,h} from './i18n.js';
 import {avatar} from './avatar.js';
 
 export function appearanceStudio(input){
   const a=normalizeAppearance(input);
-  return `<aside class="avatar-studio appearance-studio"><div class="appearance-top"><div class="avatar-stage" id="avatar-preview">${avatar(a,128,true)}</div><div class="appearance-heading"><span class="eyebrow">PIXEL PORTRAIT</span><h3>捏一个小小的 TA</h3><button type="button" class="soft-btn random-appearance" data-action="random-avatar">✧ 随机一套外观</button><small>只换外观，保留人物设定</small></div></div><div class="appearance-tabs" role="tablist" aria-label="外观分类">${appearanceGroups.map((g,i)=>`<button type="button" role="tab" id="appearance-tab-${g.id}" aria-controls="appearance-panel-${g.id}" aria-selected="${i===0}" tabindex="${i===0?0:-1}" data-appearance-tab="${g.id}" class="${i===0?'active':''}">${g.label}</button>`).join('')}</div>${appearanceGroups.map((g,i)=>`<section class="appearance-panel" role="tabpanel" id="appearance-panel-${g.id}" aria-labelledby="appearance-tab-${g.id}" ${i===0?'':'hidden'}><div class="appearance-colors">${g.colors.map(([key,label])=>`<label for="avatar-${key}"><span>${label}</span><input type="color" id="avatar-${key}" data-avatar="${key}" value="${a[key]}"></label>`).join('')}</div><div class="appearance-options">${g.fields.map(([key,label,values])=>`<div><label for="avatar-${key}">${label}</label><select id="avatar-${key}" data-avatar="${key}">${values.map(([v,l])=>`<option value="${v}" ${a[key]===v?'selected':''}>${l}</option>`).join('')}</select></div>`).join('')}</div></section>`).join('')}</aside>`;
+  return h`<aside class="avatar-studio appearance-studio"><div class="appearance-top"><div class="avatar-stage" id="avatar-preview">${avatar(a,128,true)}</div><div class="appearance-heading"><span class="eyebrow">PIXEL PORTRAIT</span><h3>捏一个小小的 TA</h3><button type="button" class="soft-btn random-appearance" data-action="random-avatar">✧ 随机一套外观</button><small>只换外观，保留人物设定</small></div></div><div class="appearance-tabs" role="tablist" aria-label="外观分类">${appearanceGroups.map((g,i)=>`<button type="button" role="tab" id="appearance-tab-${g.id}" aria-controls="appearance-panel-${g.id}" aria-selected="${i===0}" tabindex="${i===0?0:-1}" data-appearance-tab="${g.id}" class="${i===0?'active':''}">${t(g.label)}</button>`).join('')}</div>${appearanceGroups.map((g,i)=>`<section class="appearance-panel" role="tabpanel" id="appearance-panel-${g.id}" aria-labelledby="appearance-tab-${g.id}" ${i===0?'':'hidden'}><div class="appearance-colors">${g.colors.map(([key,label])=>`<label for="avatar-${key}"><span>${t(label)}</span><input type="color" id="avatar-${key}" data-avatar="${key}" value="${a[key]}"></label>`).join('')}</div><div class="appearance-options">${g.fields.map(([key,label,values])=>`<div><label for="avatar-${key}">${t(label)}</label><select id="avatar-${key}" data-avatar="${key}">${values.map(([v,l])=>`<option value="${v}" ${a[key]===v?'selected':''}>${t(l)}</option>`).join('')}</select></div>`).join('')}</div></section>`).join('')}</aside>`;
 }
 export function switchAppearanceTab(root,id,{focus=false}={}){
   if(!appearanceGroups.some(g=>g.id===id))return;
@@ -19,6 +21,7 @@ export function refreshAppearance(root,input){
   return a;
 }
 export function randomizeAppearance(root,character,random=Math.random){
-  character.avatar=randomAppearance(random);
+  const look=randomAppearance(random),suggested=genderAppearance(character.gender,look);
+  character.avatar=normalizeAppearance({...look,...(random()<.6?{hairStyle:suggested.hairStyle,outfit:suggested.outfit}:{}),...(character.gender==='female'?{facialHair:'none'}:{})});
   refreshAppearance(root,character.avatar);
 }

@@ -11,7 +11,7 @@ async function fixture(t){const app=await createApp({dataDir:await mkdtemp(join(
 test('independent HTTP and DSH prefix expose same app, with 100 presets',async t=>{
   const {url}=await fixture(t);assert.equal((await fetch(url+'/')).status,200);assert.equal((await fetch(url+'/chatroom/')).status,200);
   assert.equal((await(await fetch(url+'/api/presets')).json()).length,100);const health=await(await fetch(url+'/chatroom/api/health')).json();assert.equal(health.app,'chatroom');
-  const script=await fetch(url+'/avatar.js');assert.match(script.headers.get('Content-Type'),/javascript/);assert.equal(health.version,'1.5.0');
+  const script=await fetch(url+'/avatar.js');assert.match(script.headers.get('Content-Type'),/javascript/);assert.equal(health.version,'1.6.0');
   for(const file of ['appearance.js','appearance-editor.js','text.js','lobby.js']){const module=await fetch(url+'/chatroom/'+file);assert.equal(module.status,200);assert.match(module.headers.get('Content-Type'),/javascript/);}
 });
 
